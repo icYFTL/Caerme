@@ -14,7 +14,7 @@ pts = 0
 def update():
     global ru_rating, world_rating, pts
     while True:
-        data = json.loads(requests.get('http://localhost:8014/ctftime/teams/get/team/121175/id').text)
+        data = json.loads(requests.get('http://localhost:8014/api/teams/get/team/121175/id').text)
         ru_rating = data.get('country_place')
         if data.get('rating'):
             world_rating = data['rating'][0].get(list(data['rating'][0].keys())[0], {}).get('rating_place', 0)  # LolKek
